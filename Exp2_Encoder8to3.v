@@ -1,7 +1,7 @@
-module encoder_8_to_3(a0,a1,a2,d0,d1,d2,d3,d4,d5,d6,d7);
-input d0,d1,d2,d3,d4,d5,d6,d7;
-output a0,a1,a2;
-assign a0 = ( d1 | d3 | d5 | d7 );
-assign a1 = ( d2 | d3 | d6 | d7 );
-assign a2 = ( d4 | d6 | d5 | d7 );
+module encoder(a,y);
+input [7:0]a;
+output[2:0]y;
+or(y[2],a[6],a[5],a[4],a[3]);
+or(y[1],a[6],a[5],a[2],a[1]);
+or(y[0],a[6],a[4],a[2],a[0]);
 endmodule
