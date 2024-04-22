@@ -47,6 +47,7 @@ MAGNITUDE COMPARATOR
 
 VERILOG CODE:
 Decoder3to8:
+```
 module decoder1(a,y);
 input [2:0]a;
 output[7:0]y;
@@ -58,9 +59,27 @@ and(y[4],a[2],~a[1],~a[0]);
 and(y[5],a[2],~a[1],a[0]);
 and(y[6],a[2],a[1],~a[0]);
 and(y[7],a[2],a[1],a[0]);
-endmodule
+endmodule```
 ![decoder3to8](https://github.com/naveen0814/VLSI-LAB-EXP-2/assets/161302822/0fde56d5-648c-4088-bdc2-a1379c228927)
 ![image](https://github.com/naveen0814/VLSI-LAB-EXP-2/assets/161302822/6a0bb1f6-bf61-4ece-b569-a705d7db70cf)
+
+
+Demultiplexer1to8:
+```module demux_8(s,a,y);
+input [2:0]s;
+input a;
+output [7:0]y;
+and(y[0],a,~s[2],~s[1],~s[0]);
+and(y[1],a,~s[2],~s[1],s[0]);
+and(y[2],a,~s[2],s[1],~s[0]);
+and(y[3],a,~s[2],s[1],s[0]);
+and(y[4],a,s[2],~s[1],~s[0]);
+and(y[5],a,s[2],~s[1],s[0]);
+and(y[6],a,s[2],s[1],~s[0]);
+and(y[7],a,s[2],s[1],s[0]);
+endmodule```
+
+
 
 
 
