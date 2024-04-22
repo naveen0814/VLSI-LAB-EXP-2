@@ -1,13 +1,15 @@
-module m81(Y, I0, I1, I2, I3, I4, I5, I6, I7, S0, S1, S2);
-input I0, I1, I2, I3, I4, I5, I6, I7, S0, S1, S2;
-output Y;
-wire T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11;
-not g1(T1, S0);
-not g2(T2, S1);
-not g3(T3, S2);
-and g4(T4, I0, T1, T2, T3), g5(T5, I1, S0, T2, T3);
-and g6(T6, I2, T1, S1, T3), g7(T7, I3, S0, S1, T3);
-and g8(T8, I4, T1, T2, S2), g9(T9, I5, S0, T2, S2);
-and g10(T10, I6, T1, S1, S2), g11(T11, I7, S0, S1, S2);
-or g12(Y, T4, T5, T6, T7, T8, T9, T10, T11);
+module mux(s,c,a);
+input [2:0]s;
+input [7:0]a;
+wire [7:0]w;
+output c;
+and(w[0],a[0],~s[2],~s[1],~s[0]);
+and(w[1],a[1],~s[2],~s[1],s[0]);
+and(w[2],a[2],~s[2],s[1],~s[0]);
+and(w[3],a[3],~s[2],s[1],s[0]);
+and(w[4],a[4],s[2],~s[1],~s[0]);
+and(w[5],a[5],s[2],~s[1],s[0]);
+and(w[6],a[6],s[2],s[1],~s[0]);
+and(w[7],a[7],s[2],s[1],s[0]);
+or (c,w[0],w[1],w[2],w[3],w[4],w[5],w[6],w[7]);
 endmodule
